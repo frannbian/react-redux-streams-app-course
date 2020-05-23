@@ -6,7 +6,6 @@ import { createStream } from '../../actions';
 class StreamCreate extends React.Component {
 
     renderError({ error, touched }) {
-        console.log(error, touched);
         if(error && touched) {
             return (
                 <div className="ui error message">
@@ -52,9 +51,9 @@ const validate = (formValues) => {
     return errors;
 };
 
-const formWrap = reduxForm({
+const formWrapped = reduxForm({
     form: 'streamCreate',
     validate,
 })(StreamCreate);
 
-export default connect(null, { createStream })(formWrap);
+export default connect(null, { createStream })(formWrapped);
